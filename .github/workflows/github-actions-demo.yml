@@ -17,6 +17,7 @@ jobs:
           images=(
             k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.0
             k8s.gcr.io/ingress-nginx/controller:v0.35.0
+            k8s.gcr.io/pause:3.6
           )
           for image in ${images[@]}; do
             rest_name=$(echo $image | cut -d'/' -f2-)
