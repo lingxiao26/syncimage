@@ -25,7 +25,7 @@ jobs:
             k8s.gcr.io/pause:3.6
           )
           for image in ${images[@]}; do
-            rest_name=$(echo $image | cut -d'/' -f2-)
+            rest_name=$(echo $image | rev | cut -d'/' -f1 | rev)
             docker pull $image
             # docker tag $image ghcr.io/lingxiao26/$rest_name
             # docker push ghcr.io/lingxiao26/$rest_name
