@@ -33,6 +33,7 @@ jobs:
             k8s.gcr.io/sig-storage/csi-resizer:v1.2.0
             k8s.gcr.io/sig-storage/csi-attacher:v3.1.0
             k8s.gcr.io/sig-storage/csi-provisioner:v3.0.0
+            k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner
           )
           for image in ${images[@]}; do 
             rest_name=$(echo $image | rev | cut -d'/' -f1 | rev)
