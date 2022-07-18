@@ -19,6 +19,8 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       - name: Docker pull and push
         run: |
+          set -o pipefail
+          set -e
           images=(
             k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.0
             k8s.gcr.io/ingress-nginx/controller:v0.35.0
@@ -37,8 +39,7 @@ jobs:
           )
           for image in ${images[@]}; do 
             rest_name=$(echo $image | rev | cut -d'/' -f1 | rev)
-            docker manifest inspect sl01248/$rest_name > /dev/null
-            [ $? -eq 0 ] && continue
+            docker manifest inspect sl01248/$rest_name > /dev/null && continue
             docker pull $image
             docker tag $image sl01248/$rest_name
             docker push sl01248/$rest_name
