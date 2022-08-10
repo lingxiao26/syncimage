@@ -40,6 +40,7 @@ jobs:
             k8s.gcr.io/kube-state-metrics/kube-state-metrics:v2.5.0
             k8s.gcr.io/metrics-server/metrics-server:v0.6.1
             gcr.io/google-samples/hello-app:1.0
+            ghcr.io/dexidp/dex:v2.32.0
           )
           for image in ${images[@]}; do 
             rest_name=$(echo $image | rev | cut -d'/' -f1 | rev)
