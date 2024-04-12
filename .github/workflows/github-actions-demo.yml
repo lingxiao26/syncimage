@@ -53,6 +53,7 @@ jobs:
             quay.io/coreos/etcd:v3.4.0
             docker.elastic.co/elasticsearch/elasticsearch:7.17.19
             docker.elastic.co/kibana/kibana:7.17.19
+            docker.elastic.co/kibana/kibana:7.10.2
           )
           for image in ${images[@]}; do 
             rest_name=$(echo $image | rev | cut -d'/' -f1 | rev)
