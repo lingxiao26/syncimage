@@ -55,6 +55,7 @@ jobs:
             docker.elastic.co/kibana/kibana:7.17.19
             docker.elastic.co/kibana/kibana:7.10.2
             gcr.io/pixie-oss/pixie-prod/operator/bundle_index:0.0.1
+            ghcr.io/graalvm/jdk:java17-22.0.0
           )
           for image in ${images[@]}; do 
             rest_name=$(echo $image | rev | cut -d'/' -f1 | rev)
